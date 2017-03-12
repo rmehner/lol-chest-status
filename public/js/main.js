@@ -12,6 +12,16 @@ const sortChampions = (champions) => {
   })
 }
 
+const checkStatus = (response) => {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    const error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
 submit.addEventListener('click', (event) => {
   if (region.value.length === 0 || summonerName.value.length === 0) {
     alert('Please enter both summonerName and region')
@@ -19,6 +29,7 @@ submit.addEventListener('click', (event) => {
   }
 
   fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
+    .then(checkStatus)
     .then(response => response.json())
     .then(sortChampions)
     .then((champions) => {
@@ -28,5 +39,9 @@ submit.addEventListener('click', (event) => {
       })
 
       result.innerHTML = `<ul>${list.join('\n')}</ul>`
+    })
+    .catch((error) => {
+      alert('Sorry, something went wrong :/')
+      console.error(error)
     })
 })
