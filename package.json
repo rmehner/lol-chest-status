@@ -2,6 +2,9 @@
   "name": "can-i-have-lootz",
   "version": "1.0.0",
   "description": "Utility to see if you can get chests with a certain champion in League of Legends",
+  "engines": {
+    "node": ">= 7.6.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "standard | snazzy",
