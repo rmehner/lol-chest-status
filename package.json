@@ -4,7 +4,8 @@
   "description": "Utility to see if you can get chests with a certain champion in League of Legends",
   "main": "index.js",
   "scripts": {
-    "test": "standard | snazzy"
+    "test": "standard | snazzy",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/rmehner/can-i-have-lootz#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "koa": "^2.1.0"
+    "koa": "^2.1.0",
+    "node-fetch": "^1.6.3"
   },
   "devDependencies": {
     "snazzy": "^6.0.0",
