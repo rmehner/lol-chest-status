@@ -1,5 +1,5 @@
 {
-  "name": "can-i-have-lootz",
+  "name": "lol-chest-status",
   "version": "1.0.0",
   "description": "Utility to see if you can get chests with a certain champion in League of Legends",
   "engines": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rmehner/can-i-have-lootz.git"
+    "url": "git+https://github.com/rmehner/lol-chest-status.git"
   },
   "author": "Robin Mehner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rmehner/can-i-have-lootz/issues"
+    "url": "https://github.com/rmehner/lol-chest-status/issues"
   },
-  "homepage": "https://github.com/rmehner/can-i-have-lootz#readme",
+  "homepage": "https://github.com/rmehner/lol-chest-status#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
     "koa": "^2.1.0",

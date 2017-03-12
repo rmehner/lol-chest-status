@@ -1,4 +1,4 @@
-# Can I have lootz?
+# LoL chest status
 
 This is a simple utility to see if you can get a chest with a certain champion
 in League of Legends
