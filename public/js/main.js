@@ -1,9 +1,8 @@
-/* global fetch, alert, localStorage */
+/* global fetch, localStorage */
 const form = document.getElementById('form')
 const region = document.getElementById('region')
 const summonerName = document.getElementById('summonerName')
 const result = document.getElementById('result')
-const spinner = document.getElementById('spinner')
 
 const savedName = localStorage.getItem('summonerName')
 if (savedName) summonerName.value = savedName
@@ -29,19 +28,17 @@ const checkStatus = (response) => {
   }
 }
 
-const hideSpinner = () => {
-  spinner.classList.add('hidden')
-}
-
 form.addEventListener('submit', (event) => {
   event.preventDefault()
 
   if (region.value.length === 0 || summonerName.value.length === 0) {
-    alert('Please enter both summonerName and region')
+    result.innerHTML = 'Please enter both summonerName and region'
     return
   }
 
-  spinner.classList.remove('hidden')
+  // spinner ¯\_(ツ)_/¯
+  result.innerHTML = '<marquee width=200>Loading</marquee>'
+
   localStorage.setItem('summonerName', summonerName.value)
   localStorage.setItem('region', region.value)
 
@@ -58,8 +55,7 @@ form.addEventListener('submit', (event) => {
       result.innerHTML = `<ul>${list.join('\n')}</ul>`
     })
     .catch((error) => {
-      alert('Sorry, something went wrong :/')
+      result.innerHTML = 'Sorry, something went wrong :/ Check console output.'
       console.error(error)
     })
-    .then(hideSpinner)
 })

@@ -6,11 +6,3 @@
 .no-chest-granted {
   color: red;
 }
-
-.hidden {
-  display: none;
-}
-
-#spinner {
-  width: 200px;
-}
