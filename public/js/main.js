@@ -1,5 +1,5 @@
 /* global fetch, alert, localStorage */
-const submit = document.getElementById('submit')
+const form = document.getElementById('form')
 const region = document.getElementById('region')
 const summonerName = document.getElementById('summonerName')
 const result = document.getElementById('result')
@@ -33,7 +33,9 @@ const hideSpinner = () => {
   spinner.classList.add('hidden')
 }
 
-submit.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+
   if (region.value.length === 0 || summonerName.value.length === 0) {
     alert('Please enter both summonerName and region')
     return
