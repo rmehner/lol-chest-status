@@ -3,6 +3,8 @@ const Koa = require('koa')
 const fetch = require('node-fetch')
 const URL = require('url').URL
 
+const getRegion = require('./lib/regions')
+
 const app = new Koa()
 const PORT = process.env.PORT || 3000
 
@@ -48,7 +50,8 @@ app.use(async function (ctx) {
   const region = url.searchParams.get('region')
   const summonerName = url.searchParams.get('name')
   const summonerInfo = await getSummonerInfo(region, summonerName)
-  const championMasteries = await getSummonerChampionInfo('EUW1', summonerInfo[summonerName.toLowerCase()].id)
+  const location = getRegion(region).location
+  const championMasteries = await getSummonerChampionInfo(location, summonerInfo[summonerName.toLowerCase()].id)
   const allChampions = await getAllChampions(region)
 
   ctx.body = championMasteries.map((championMastery) => {
