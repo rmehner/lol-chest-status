@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Koa = require('koa')
 const serve = require('koa-static')
+const logger = require('koa-log')
 const fetch = require('node-fetch')
 const URL = require('url').URL
 const path = require('path')
@@ -10,6 +11,7 @@ const getRegion = require('./lib/regions')
 const app = new Koa()
 const PORT = process.env.PORT || 3000
 
+app.use(logger())
 app.use(serve(path.join(__dirname, 'public')))
 
 const API_BASE_HOST = 'https://euw.api.pvp.net'
@@ -18,11 +20,6 @@ if (!process.env.RIOT_API_KEY) {
   console.error('Cannot find RIOT_API_KEY in environment.')
   process.exit(1)
 }
-
-app.use(async function logRequest (ctx, next) {
-  console.log(`${ctx.request.method} ${ctx.request.url}`)
-  await next()
-})
 
 async function getSummonerInfo (region, summonerName) {
   const response = await fetch(`${API_BASE_HOST}/api/lol/${region}/v1.4/summoner/by-name/${summonerName}?api_key=${process.env.RIOT_API_KEY}`)
