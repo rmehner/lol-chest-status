@@ -1,12 +1,16 @@
 require('dotenv').config()
 const Koa = require('koa')
+const serve = require('koa-static')
 const fetch = require('node-fetch')
 const URL = require('url').URL
+const path = require('path')
 
 const getRegion = require('./lib/regions')
 
 const app = new Koa()
 const PORT = process.env.PORT || 3000
+
+app.use(serve(path.join(__dirname, 'public')))
 
 const API_BASE_HOST = 'https://euw.api.pvp.net'
 
