@@ -29,7 +29,7 @@ app.use(async function (ctx) {
 
   ctx.body = championMasteries.map((championMastery) => {
     return {
-      champion: allChampions[championMastery.championId],
+      name: allChampions[championMastery.championId],
       chestGranted: championMastery.chestGranted
     }
   })
