@@ -3,6 +3,7 @@ const submit = document.getElementById('submit')
 const region = document.getElementById('region')
 const summonerName = document.getElementById('summonerName')
 const result = document.getElementById('result')
+const spinner = document.getElementById('spinner')
 
 const sortChampions = (champions) => {
   return champions.sort((championA, championB) => {
@@ -22,11 +23,17 @@ const checkStatus = (response) => {
   }
 }
 
+const hideSpinner = () => {
+  spinner.classList.add('hidden')
+}
+
 submit.addEventListener('click', (event) => {
   if (region.value.length === 0 || summonerName.value.length === 0) {
     alert('Please enter both summonerName and region')
     return
   }
+
+  spinner.classList.remove('hidden')
 
   fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
@@ -44,4 +51,5 @@ submit.addEventListener('click', (event) => {
       alert('Sorry, something went wrong :/')
       console.error(error)
     })
+    .then(hideSpinner)
 })
