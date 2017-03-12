@@ -22,9 +22,9 @@ app.use(async function (ctx) {
 
   const region = url.searchParams.get('region')
   const summonerName = url.searchParams.get('name')
-  const summonerInfo = await riotApi.getSummonerInfo(region, summonerName)
+  const summonerId = await riotApi.getSummonerIdForName(region, summonerName)
   const location = getRegion(region).location
-  const championMasteries = await riotApi.getSummonerChampionInfo(location, summonerInfo[summonerName.toLowerCase()].id)
+  const championMasteries = await riotApi.getSummonerChampionInfo(location, summonerId)
   const allChampions = await riotApi.getAllChampions(region)
 
   ctx.body = championMasteries.map((championMastery) => {
