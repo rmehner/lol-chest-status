@@ -1,9 +1,12 @@
-/* global fetch, alert */
+/* global fetch, alert, localStorage */
 const submit = document.getElementById('submit')
 const region = document.getElementById('region')
 const summonerName = document.getElementById('summonerName')
 const result = document.getElementById('result')
 const spinner = document.getElementById('spinner')
+
+const savedName = localStorage.getItem('summonerName')
+if (savedName) summonerName.value = savedName
 
 const sortChampions = (champions) => {
   return champions.sort((championA, championB) => {
@@ -34,6 +37,7 @@ submit.addEventListener('click', (event) => {
   }
 
   spinner.classList.remove('hidden')
+  localStorage.setItem('summonerName', summonerName.value)
 
   fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
