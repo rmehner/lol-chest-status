@@ -8,6 +8,9 @@ const spinner = document.getElementById('spinner')
 const savedName = localStorage.getItem('summonerName')
 if (savedName) summonerName.value = savedName
 
+const savedRegion = localStorage.getItem('region')
+if (savedRegion) region.value = savedRegion
+
 const sortChampions = (champions) => {
   return champions.sort((championA, championB) => {
     if (championA.name < championB.name) return -1
@@ -38,6 +41,7 @@ submit.addEventListener('click', (event) => {
 
   spinner.classList.remove('hidden')
   localStorage.setItem('summonerName', summonerName.value)
+  localStorage.setItem('region', region.value)
 
   fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
