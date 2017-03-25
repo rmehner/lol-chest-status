@@ -1,3 +1,7 @@
+body {
+  font-family: Helvetica, "Trebuchet MS", sans-serif;
+}
+
 .chest-granted {
   opacity: 0.4;
 }
