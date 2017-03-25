@@ -28,6 +28,11 @@ const checkStatus = (response) => {
   }
 }
 
+const spriteStyleForChampion = (champion) => {
+  const spriteUrl = `http://ddragon.leagueoflegends.com/cdn/7.6.1/img/sprite/${champion.image.sprite}`
+  return `background: url(${spriteUrl}) -${champion.image.x}px -${champion.image.y}px`
+}
+
 form.addEventListener('submit', (event) => {
   event.preventDefault()
 
@@ -49,7 +54,18 @@ form.addEventListener('submit', (event) => {
     .then((champions) => {
       const list = champions.map((champion) => {
         const className = champion.chestGranted ? 'chest-granted' : 'no-chest-granted'
-        return `<li class="${className}">${champion.name}</li>`
+        return `
+          <li class="${className}">
+            <img
+              class="champion-sprite"
+              src="/img/spacer.gif"
+              style="${spriteStyleForChampion(champion)}"
+              alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
+              title="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
+            />
+            ${champion.name}
+          </li>
+        `
       })
 
       result.innerHTML = `<ul>${list.join('\n')}</ul>`

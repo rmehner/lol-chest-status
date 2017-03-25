@@ -1,13 +1,23 @@
 .chest-granted {
-  color: green;
-  font-weight: bold;
-}
-
-.no-chest-granted {
-  color: red;
+  opacity: 0.4;
 }
 
 footer {
   font-size: small;
   padding-top: 5em;
+}
+
+.champion-sprite {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-weight: bold;
+  padding: 0.2em;
 }
