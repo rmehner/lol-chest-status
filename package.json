@@ -7,7 +7,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "standard | snazzy",
+    "lint": "standard | snazzy",
+    "test": "npm run lint && tap tests/*.js",
     "start": "node index"
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "snazzy": "^6.0.0",
-    "standard": "^9.0.1"
+    "standard": "^9.0.1",
+    "tap": "^10.3.0"
   }
 }
