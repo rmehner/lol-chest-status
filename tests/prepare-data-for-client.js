@@ -1,17 +1,21 @@
 const { test } = require('tap')
-const mergeChampionDataWithMasteries = require('../lib/util/merge-champion-data-with-masteries')
+const prepareDataForClient = require('../lib/util/prepare-data-for-client')
 
-test('mergeChampionDataWithMasteries', (t) => {
+test('prepareDataForClient', (t) => {
   // data queried from https://developer.riotgames.com/api-methods/#lol-static-data-v1.2
-  // with `dataById` set to `true`
+  // with `dataById` set to `true` and `champData` to `image`
   const allChampionData = {
-    '17': {
-      'name': 'Teemo',
-      'id': 17
-    },
-    '74': {
-      'name': 'Heimerdinger',
-      'id': 74
+    'type': 'champion',
+    'version': '7.6.1',
+    'data': {
+      '17': {
+        'name': 'Teemo',
+        'id': 17
+      },
+      '74': {
+        'name': 'Heimerdinger',
+        'id': 74
+      }
     }
   }
 
@@ -30,10 +34,10 @@ test('mergeChampionDataWithMasteries', (t) => {
     }
   ]
 
-  const result = mergeChampionDataWithMasteries(allChampionData, championMasteriesOfSummoner)
+  const result = prepareDataForClient(allChampionData, championMasteriesOfSummoner)
 
   t.test('adds mastery status of the summoner to the champion data', (t) => {
-    const teemo = result.find(champion => champion.name === 'Teemo')
+    const teemo = result.champions.find(champion => champion.name === 'Teemo')
     t.ok(teemo.chestGranted)
     t.equal(teemo.championLevel, 5)
     t.equal(teemo.championPoints, 55063)
@@ -48,8 +52,14 @@ test('mergeChampionDataWithMasteries', (t) => {
   })
 
   t.test('adds chestGranted to champions the summoner has no mastery for yet', (t) => {
-    const heimerdinger = result.find(champion => champion.name === 'Heimerdinger')
+    const heimerdinger = result.champions.find(champion => champion.name === 'Heimerdinger')
     t.notOk(heimerdinger.chestGranted)
+
+    t.end()
+  })
+
+  t.test('it returns the version of the champion data', (t) => {
+    t.equal(result.version, '7.6.1')
 
     t.end()
   })

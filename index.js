@@ -7,7 +7,7 @@ const path = require('path')
 
 const getRegion = require('./lib/riot/regions')
 const riotApi = require('./lib/riot/api')(process.env.RIOT_API_KEY)
-const mergeChampionDataWithMasteries = require('./lib/util/merge-champion-data-with-masteries')
+const prepareDataForClient = require('./lib/util/prepare-data-for-client')
 
 const app = new Koa()
 const PORT = process.env.PORT || 3000
@@ -28,7 +28,7 @@ app.use(async (ctx) => {
   const championMasteries = await riotApi.getSummonerChampionInfo(location, summonerId)
   const allChampions = await riotApi.getAllChampions(region)
 
-  ctx.body = mergeChampionDataWithMasteries(allChampions.data, championMasteries)
+  ctx.body = prepareDataForClient(allChampions, championMasteries)
 })
 
 app.listen(PORT)

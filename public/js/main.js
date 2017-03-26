@@ -28,8 +28,8 @@ const checkStatus = (response) => {
   }
 }
 
-const spriteStyleForChampion = (champion) => {
-  const spriteUrl = `http://ddragon.leagueoflegends.com/cdn/7.6.1/img/sprite/${champion.image.sprite}`
+const spriteStyleForChampion = (champion, version) => {
+  const spriteUrl = `http://ddragon.leagueoflegends.com/cdn/${version}/img/sprite/${champion.image.sprite}`
   return `background: url(${spriteUrl}) -${champion.image.x}px -${champion.image.y}px`
 }
 
@@ -50,8 +50,10 @@ form.addEventListener('submit', (event) => {
   fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
     .then(response => response.json())
-    .then(sortChampions)
-    .then((champions) => {
+    .then((data) => {
+      const champions = sortChampions(data.champions)
+      const version = data.version
+
       const list = champions.map((champion) => {
         const className = champion.chestGranted ? 'chest-granted' : 'no-chest-granted'
         return `
@@ -59,7 +61,7 @@ form.addEventListener('submit', (event) => {
             <img
               class="champion-sprite"
               src="/img/spacer.gif"
-              style="${spriteStyleForChampion(champion)}"
+              style="${spriteStyleForChampion(champion, version)}"
               alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
               title="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
             />
