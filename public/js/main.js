@@ -63,7 +63,6 @@ form.addEventListener('submit', (event) => {
               src="/img/spacer.gif"
               style="${spriteStyleForChampion(champion, version)}"
               alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
-              title="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
             />
             ${champion.name}
           </li>
