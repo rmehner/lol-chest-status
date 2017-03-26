@@ -1,14 +1,20 @@
----
 language: node_js
 node_js:
   - "7"
 sudo: false
 cache:
   directories:
-    - $HOME/.npm
+    - "$HOME/.npm"
 before_install:
   - npm install -g npm
 install:
   - npm install
 script:
   - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: tklqN2rhv6Xuu1Uo0dBYNeGB5gvDiteFeKLd+q3ttwL6ueIKTj3ioBUcxv4Ostv8lkjBaorVx7Cdpd0CcMWPwIhzYuALA66lpYb6dbVRD6ALKWMrllM/Ju489ryrPqIOfDwu7cC9pEZ8rPc1dWL4l0xWCNvQSlefflLnm+IcmUn+dpBVp9Yz9UiJd1lTSE4CPHk1/9u32XHYc+hw/GVhZQXX9AcKss19RlQGK/3Iwc0G2/McNp6t9lI1RdLLjuMmyh1TdmM0MfDuz+CCKhzQPOekqviiW8Rhd7nUjTckAAGlgRkPx53nxuLL2eAh68Rhj8YY/0BEeX8jYqhhmv/khvw1YRABb3FijcpL7koS3bSw2q291fOAa0oO3AU+fq88rbDJtCefVt34xZu67yu4uQr0EfyaV7Vxb28zADSfYyW9N/llv4T7yuOvluCCoL6MyjlxL23y7DTYCM8U6JRXqmTfkSVpBBrppyLtxJJVYvPOD55YRXkP20HsmuytDXZksZp2/foeIbI11+TFZy+WF2TGcGdf9XUauk9KBSu4YXgZtUMs9wD72mcM4Z+/IqPyWDBLf/iLjUCyOBNRqH/mKIXRmwxixm4o9nJvkHBt/co+1BFTt8hJSAITsY5RN/bKC6IqONYslJDWQG3gaoRsa58VWq3YbJzhrOkdtb4FoSk=
+  app: hidden-cliffs-88015
+  on:
+    repo: rmehner/lol-chest-status
