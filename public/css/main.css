@@ -1,14 +1,99 @@
 body {
-  font-family: Helvetica, "Trebuchet MS", sans-serif;
+  font-family: "Noto Sans", "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.chest-granted {
-  opacity: 0.4;
+.page_section_bg {
+  background-color: rgb(248, 248, 249);
 }
 
-footer {
-  font-size: small;
-  padding-top: 5em;
+.page_section_inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  color: rgb(23, 54, 79);
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgb(30, 69, 102);
+  border-bottom: 1px solid #fff;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+}
+
+a {
+  color: rgb(74, 142, 201);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/*Form*/
+.form_block {
+  width: 100%;
+  max-width: 360px;
+}
+
+.form_text, .form_select, .btn {
+  font-size: 16px;
+  padding: 1em;
+  border: 1px solid rgb(194, 205, 214);
+  border-radius: 3px;
+}
+
+.form_text {
+  width: 55%;
+}
+
+.form_select {
+  width: 30%;
+  -webkit-appearance: none;
+  border-image: none;
+  background: rgb(255, 255, 255);
+}
+
+.btn {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  background: rgb(74, 142, 201);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(44, 108, 164);
+}
+
+.btn:focus {
+  outline: none;
+  background-color: rgb(88, 151, 205);
+}
+
+/*Champions*/
+.columns {
+  -webkit-column-count: 1; /* Chrome, Safari, Opera */
+  -moz-column-count: 1; /* Firefox */
+  column-count: 1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: initial;
+}
+
+li {
+  font-weight: bold;
+  padding: 0.2em;
+  border-bottom: 1px solid rgb(194, 205, 214);
 }
 
 .champion-sprite {
@@ -17,11 +102,46 @@ footer {
   vertical-align: middle;
 }
 
-ul {
-  list-style-type: none;
+.chest-granted {
+  opacity: 0.4;
 }
 
-li {
-  font-weight: bold;
-  padding: 0.2em;
+/*Footer*/
+
+footer {
+  font-size: .8em;
+  text-align: center;
+  background-color: rgb(248, 248, 249);
+  border-top: 8px solid rgb(237, 240, 243);
+}
+
+footer a {
+  letter-spacing: 1px;
+  padding: 1em;
+}
+
+/*Helper*/
+.margin_right_small {
+  margin-right: .8em;
+}
+
+.margin_top_0 {
+  margin-top: 0px;
+}
+
+.margin_top_default {
+  margin-top: 1em;
+}
+
+.float_right {
+  float: right;
+}
+
+/*Media queries*/
+@media only screen and (min-width: 768px) {
+  .columns {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+  }
 }
