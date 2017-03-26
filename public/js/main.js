@@ -59,7 +59,7 @@ form.addEventListener('submit', (event) => {
         return `
           <li class="${className}">
             <img
-              class="champion-sprite"
+              class="champion-sprite margin_right_small"
               src="/img/spacer.gif"
               style="${spriteStyleForChampion(champion, version)}"
               alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"

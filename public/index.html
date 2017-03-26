@@ -3,31 +3,43 @@
   <head>
     <meta charset="utf-8">
     <title>LoL chest status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    <h1>LoL chest status</h1>
-    <form id="form">
-      <input id="summonerName" placeholder="Summoner name">
-      <select id="region">
-        <option>EUW</option>
-        <option>BR</option>
-        <option>EUNE</option>
-        <option>JP</option>
-        <option>KR</option>
-        <option>LAN</option>
-        <option>LAS</option>
-        <option>NA</option>
-        <option>OCE</option>
-        <option>TR</option>
-        <option>RU</option>
-        <option>PBE</option>
-      </select>
-      <button>Check</button>
-    </form>
-    <div id="result"></div>
+    <div class="page_section_bg">
+      <div class="page_section_inner">
+        <h1 class="margin_top_0">LoL chest status</h1>
+        <form id="form" class="form_block">
+          <input id="summonerName" placeholder="Summoner name" class="form_text">
+          <select id="region" class="form_select float_right">
+            <option>EUW</option>
+            <option>BR</option>
+            <option>EUNE</option>
+            <option>JP</option>
+            <option>KR</option>
+            <option>LAN</option>
+            <option>LAS</option>
+            <option>NA</option>
+            <option>OCE</option>
+            <option>TR</option>
+            <option>RU</option>
+            <option>PBE</option>
+          </select>
+          <button class="btn margin_top_default">Check</button>
+        </form>
+      </div>
+    </div>
+    <div class="page_section">
+      <div class="page_section_inner">
+        <div id="result" class="columns"></div>
+      </div>
+    </div>
     <footer>
-      <a href="https://github.com/rmehner/lol-chest-status">Source at GitHub</a>
+      <div class="page_section_inner">
+        <a href="https://github.com/rmehner/lol-chest-status">Source at GitHub</a>
+      </div>
     </footer>
     <script src="/js/main.js"></script>
   </body>
