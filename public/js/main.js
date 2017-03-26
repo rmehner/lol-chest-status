@@ -29,7 +29,7 @@ const checkStatus = (response) => {
 }
 
 const spriteStyleForChampion = (champion, version) => {
-  const spriteUrl = `http://ddragon.leagueoflegends.com/cdn/${version}/img/sprite/${champion.image.sprite}`
+  const spriteUrl = `//ddragon.leagueoflegends.com/cdn/${version}/img/sprite/${champion.image.sprite}`
   return `background: url(${spriteUrl}) -${champion.image.x}px -${champion.image.y}px`
 }
 
