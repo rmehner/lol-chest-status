@@ -1,4 +1,4 @@
-/* global fetch, localStorage */
+/* global unfetch, localStorage */
 const form = document.getElementById('form')
 const region = document.getElementById('region')
 const summonerName = document.getElementById('summonerName')
@@ -47,7 +47,7 @@ form.addEventListener('submit', (event) => {
   localStorage.setItem('summonerName', summonerName.value)
   localStorage.setItem('region', region.value)
 
-  fetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
+  unfetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
     .then(response => response.json())
     .then((data) => {
