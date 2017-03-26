@@ -1,5 +1,7 @@
 # LoL chest status
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rmehner/lol-chest-status.svg)](https://greenkeeper.io/)
+
 ## Check if you can get a chest with that champion
 
 My friends and me, we mostly play ARAM and we sometimes want to know if we can
