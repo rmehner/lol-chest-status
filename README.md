@@ -30,5 +30,6 @@ No frameworks have been harmed making this.
 * run `npm start` in the project folder
 * point your browser to `http://localhost:3000`
 
-The frontend needs a modern browser with support for arrow functions, `fetch` and
-`<marquee>`.
+## Legal
+
+This project is not endorsed by Riot Games. League of Legends and Riot Games are trademarks, service marks, and registered trademarks of Riot Games, Inc.
