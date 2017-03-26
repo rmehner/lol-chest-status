@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000
 app.on('error', (err, ctx) => console.error('server error', err, ctx))
 app.use(logger())
 app.use(serve(path.join(__dirname, 'public')))
-app.use(async function (ctx) {
+app.use(async (ctx) => {
   const url = new URL(ctx.request.url, 'http://localhost')
   if (url.pathname !== '/api/summoner') {
     return
