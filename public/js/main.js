@@ -1,9 +1,4 @@
-/* global unfetch, localStorage */
-const form = document.getElementById('form')
-const region = document.getElementById('region')
-const summonerName = document.getElementById('summonerName')
-const result = document.getElementById('result')
-
+/* global unfetch, localStorage, form, region, summonerName, result */
 const savedName = localStorage.getItem('summonerName')
 if (savedName) summonerName.value = savedName
 
