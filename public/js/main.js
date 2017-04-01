@@ -39,8 +39,12 @@ form.addEventListener('submit', (event) => {
   // spinner ¯\_(ツ)_/¯
   result.innerHTML = '<marquee width=200>Loading</marquee>'
 
-  localStorage.setItem('summonerName', summonerName.value)
-  localStorage.setItem('region', region.value)
+  try {
+    localStorage.setItem('summonerName', summonerName.value)
+    localStorage.setItem('region', region.value)
+  } catch (e) {
+    console.error(e)
+  }
 
   unfetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
     .then(checkStatus)
