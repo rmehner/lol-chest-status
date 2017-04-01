@@ -1,5 +1,6 @@
 # Leage of Legends chest status
 
+[![Build Status](https://travis-ci.org/rmehner/lol-chest-status.svg?branch=master)](https://travis-ci.org/rmehner/lol-chest-status)
 [![Greenkeeper badge](https://badges.greenkeeper.io/rmehner/lol-chest-status.svg)](https://greenkeeper.io/)
 
 ## Check if you can get a chest with that champion
