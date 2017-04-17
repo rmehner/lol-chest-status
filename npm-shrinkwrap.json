@@ -2879,9 +2879,9 @@
       "dev": true
     },
     "snazzy": {
-      "version": "6.0.0",
-      "from": "snazzy@latest",
-      "resolved": "https://registry.npmjs.org/snazzy/-/snazzy-6.0.0.tgz",
+      "version": "7.0.0",
+      "from": "snazzy@7.0.0",
+      "resolved": "https://registry.npmjs.org/snazzy/-/snazzy-7.0.0.tgz",
       "dev": true
     },
     "sntp": {
