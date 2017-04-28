@@ -1,4 +1,4 @@
-/* global unfetch, localStorage, form, region, summonerName, result */
+/* global XMLHttpRequest, localStorage, form, region, summonerName, result */
 const savedName = localStorage.getItem('summonerName')
 if (savedName) summonerName.value = savedName
 
@@ -13,19 +13,31 @@ const sortChampions = (champions) => {
   })
 }
 
-const checkStatus = (response) => {
-  if (response.status >= 200 && response.status < 300) {
-    return response
-  } else {
-    const error = new Error(response.statusText)
-    error.response = response
-    throw error
-  }
-}
-
 const spriteStyleForChampion = (champion, version) => {
   const spriteUrl = `//ddragon.leagueoflegends.com/cdn/${version}/img/sprite/${champion.image.sprite}`
   return `background: url(${spriteUrl}) -${champion.image.x}px -${champion.image.y}px`
+}
+
+const displayResult = (data) => {
+  const champions = sortChampions(data.champions)
+  const version = data.version
+
+  const list = champions.map((champion) => {
+    const className = champion.chestGranted ? 'chest-granted' : 'no-chest-granted'
+    return `
+      <li class="${className}">
+        <img
+          class="champion-sprite margin_right_small"
+          src="/img/spacer.gif"
+          style="${spriteStyleForChampion(champion, version)}"
+          alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
+        />
+        ${champion.name}
+      </li>
+    `
+  })
+
+  result.innerHTML = `<ul>${list.join('\n')}</ul>`
 }
 
 form.addEventListener('submit', (event) => {
@@ -46,32 +58,22 @@ form.addEventListener('submit', (event) => {
     console.error(e)
   }
 
-  unfetch(`/api/summoner?region=${region.value}&name=${summonerName.value}`)
-    .then(checkStatus)
-    .then(response => response.json())
-    .then((data) => {
-      const champions = sortChampions(data.champions)
-      const version = data.version
-
-      const list = champions.map((champion) => {
-        const className = champion.chestGranted ? 'chest-granted' : 'no-chest-granted'
-        return `
-          <li class="${className}">
-            <img
-              class="champion-sprite margin_right_small"
-              src="/img/spacer.gif"
-              style="${spriteStyleForChampion(champion, version)}"
-              alt="${champion.name} chest granted: ${champion.chestGranted ? 'Yes' : 'No'}"
-            />
-            ${champion.name}
-          </li>
-        `
-      })
-
-      result.innerHTML = `<ul>${list.join('\n')}</ul>`
-    })
-    .catch((error) => {
+  const request = new XMLHttpRequest()
+  request.open('GET', `/api/summoner?region=${region.value}&name=${summonerName.value}`)
+  request.onload = () => {
+    if (request.status < 200 || request.status > 300) {
       result.innerHTML = 'Sorry, something went wrong :/ Check console output.'
-      console.error(error)
-    })
+      console.error(request)
+      return
+    }
+
+    try {
+      const data = JSON.parse(request.responseText)
+      displayResult(data)
+    } catch (e) {
+      result.innerHTML = 'Could not parse response data'
+      console.error(e, request)
+    }
+  }
+  request.send()
 })
