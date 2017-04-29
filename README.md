@@ -1,4 +1,4 @@
-# Leage of Legends chest status
+# League of Legends chest status
 
 [![Build Status](https://travis-ci.org/rmehner/lol-chest-status.svg?branch=master)](https://travis-ci.org/rmehner/lol-chest-status)
 [![Greenkeeper badge](https://badges.greenkeeper.io/rmehner/lol-chest-status.svg)](https://greenkeeper.io/)
