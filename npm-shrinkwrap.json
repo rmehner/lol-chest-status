@@ -1008,9 +1008,9 @@
       "resolved": "https://registry.npmjs.org/humanize-number/-/humanize-number-0.0.2.tgz"
     },
     "iconv-lite": {
-      "version": "0.4.15",
+      "version": "0.4.17",
       "from": "iconv-lite@>=0.4.13 <0.5.0",
-      "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.15.tgz"
+      "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.17.tgz"
     },
     "ignore": {
       "version": "3.2.7",
@@ -1394,9 +1394,9 @@
       "resolved": "https://registry.npmjs.org/negotiator/-/negotiator-0.6.1.tgz"
     },
     "node-fetch": {
-      "version": "1.6.3",
-      "from": "node-fetch@latest",
-      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-1.6.3.tgz"
+      "version": "1.7.0",
+      "from": "node-fetch@1.7.0",
+      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-1.7.0.tgz"
     },
     "number-is-nan": {
       "version": "1.0.1",
