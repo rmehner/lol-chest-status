@@ -14,7 +14,7 @@ No frameworks have been harmed making this.
 
 ## Requirements
 
-* Node 7.6.0 (we need this sweet async/await)
+* Node 8.0.0 (we need this sweet async/await)
 * A Riot API key (https://developer.riotgames.com)
 * The frontend needs a modern browser with support for arrow functions and
 `<marquee>`.
