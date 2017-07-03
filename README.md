@@ -15,6 +15,7 @@ No frameworks have been harmed making this.
 ## Requirements
 
 * Node 8.0.0 (we need this sweet async/await)
+* npm 5+ is recommended for package-lock.json support.
 * A Riot API key (https://developer.riotgames.com)
 * The frontend needs a modern browser with support for arrow functions and
 `<marquee>`.
