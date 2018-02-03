@@ -27,7 +27,7 @@
     "koa": "^2.3.0",
     "koa-log": "^2.1.0",
     "koa-static": "^4.0.1",
-    "node-fetch": "^1.7.1"
+    "node-fetch": "^2.0.0"
   },
   "devDependencies": {
     "snazzy": "^7.0.0",
