@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Utility to see if you can get chests with a certain champion in League of Legends",
   "engines": {
-    "node": ">= 8.0.0",
-    "npm": ">= 5.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "main": "index.js",
   "scripts": {
