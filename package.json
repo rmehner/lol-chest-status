@@ -30,8 +30,8 @@
     "node-fetch": "^2.0.0"
   },
   "devDependencies": {
-    "snazzy": "^7.0.0",
-    "standard": "^11.0.0",
-    "tap": "^11.0.0"
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1",
+    "tap": "^12.0.1"
   }
 }
