@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/rmehner/lol-chest-status#readme",
   "dependencies": {
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.2.0",
     "koa": "^2.7.0",
     "koa-log": "^2.1.0",
     "koa-static": "^5.0.0",
